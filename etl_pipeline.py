@@ -17,7 +17,39 @@ def extract(file_path):
 
 
 # Funcao de Transformação do ETL
+
+def transform():
     
-        
+    raw_one_piece = extract("datasets/one_piece.json")
     
+    # Agora raw_dict é um dicionário puro!
+    raw_dict = raw_one_piece.to_dict(orient='index')
+    df_dict_data =  pd.DataFrame(raw_dict) 
+    
+    #for one_piece_id, one_piece_info in raw_dict.items():
+       #  print(one_piece_id, ":", one_piece_info, "grams")
+    return df_dict_data
+
+
+
+
+# Funcao de Load do ETL
+
+def load():
+     
+    stock_data = transform()
+    # Guarda o ficheiro (não atribuas isto a uma variável)
+    stock_data.to_csv("datasets/datos.csv", index=False) 
+    
+    # Retorna as primeiras linhas do DataFrame original
+    return stock_data.head()
         
+
+   
+
+
+
+    
+
+    
+    
