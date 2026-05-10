@@ -10,9 +10,10 @@ def clean_data():
     clean_stock_data = transform()
     return clean_stock_data
     
+
   
 def test_transformed_data(clean_data):
-    assert isinstance(clean_data, pd.DataFrame)
+    assert isinstance(clean_stock_data, pd.DataFrame)
 
 
 
